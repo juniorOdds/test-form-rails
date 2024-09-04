@@ -1,42 +1,46 @@
+
+<%= stylesheet_link_tag "dashboard.css", media: "all" %>
+
 <%= form_with(model: @user, url: register_user_path, method: :post, local: true) do |form| %>
-  <main>
-    <section class="title">
-      <h1>Register Form</h1>
-    </section>
-    <section class="center">
-      <div class="form-left">
-        <%= form.label :first_name, "First Name:" %>
-        <%= form.text_field :first_name %>
-        
-        <%= form.label :birthday, "Birthday" %>
-        <%= form.date_field :birthday %>
-        
-        <%= form.label :email, "Email" %>
-        <%= form.email_field :email %>
-      </div>
+  <body>
+    <main>
+        <section class="title">
+            <h1>Register Form</h1>
+        </section>
+        <section class="center">
+            <div class="form-left">
+                <%= form.label :first_name, "First Name:" %>
+                <%= form.text_field :first_name %>
+                
+                <%= form.label :birthday, "Birthday" %>
+                <%= form.date_field :birthday %>
+                
+                <%= form.label :email, "Email" %>
+                <%= form.email_field :email %>
+            </div>
 
-      <div class="form-right">
-        <%= form.label :last_name, "Last Name:" %>
-        <%= form.text_field :last_name %>
-        
-        <%= form.label :gender, "Gender" %>
-        <div class="gender-group">
-          <div><%= form.radio_button :gender, 'male' %> Male</div>
-          <div><%= form.radio_button :gender, 'female' %> Female</div>
-        </div>
+            <div class="form-right">
+                <%= form.label :last_name, "Last Name:" %>
+                <%= form.text_field :last_name %>
+                
+                <%= form.label :gender, "Gender" %>
+                <div class="gender-group">
+                <div><%= form.radio_button :gender, 'male' %> Male</div>
+                <div><%= form.radio_button :gender, 'female' %> Female</div>
+                </div>
 
-        <%= form.label :phone, "Phone Number" %>
-        <%= form.telephone_field :phone_number %>
-      </div>
-    </section>
+                <%= form.label :phone, "Phone Number" %>
+                <%= form.telephone_field :phone_number %>
+            </div>
+        </section>
 
-    <section class="bottom">
-      <div class="form-group">
-        <%= form.label :subject, "Subject" %>
-        <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]), { required: true } %>
-      </div>
-
-      <%= form.submit "Submit", id: "submit-button" %>
-    </section>
-  </main>
+        <section class="bottom">
+            <div class="form-group">
+                <%= form.label :subject, "Subject" %>
+                <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]), { required: true } %>
+            </div>
+            <%= form.submit "Submit", id: "submit-button" %>
+        </section>
+    </main>
+  </body>
 <% end %>
