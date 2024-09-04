@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "dashboard/:id", to: "user#list", as: :user_list
   get "registerform", to: "user#new", as: :register_user
   post "registerform", to: "user#create", as: :create_user
+  root "user#new"
+
   # Defines the root path route ("/")
   # root "posts#index"
+  
 end
