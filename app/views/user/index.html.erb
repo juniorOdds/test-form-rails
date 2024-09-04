@@ -1,1 +1,8 @@
 <h1>Hello</h1>
+
+  <% @user.each do |people| %>
+    <li>
+      <%= people.firstName %>
+    </li>
+  <% end %>
+  

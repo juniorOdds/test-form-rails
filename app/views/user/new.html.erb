@@ -1,0 +1,42 @@
+<%= form_with(model: @user, url: register_user_path, method: :post, local: true) do |f| %>
+  <main>
+    <section class="title">
+      <h1>Register Form</h1>
+    </section>
+    <section class="center">
+      <div class="form-left">
+        <%= f.label :first_name, "First Name:" %>
+        <%= f.text_field :first_name %>
+        
+        <%= f.label :birthday, "Birthday" %>
+        <%= f.date_field :birthday %>
+        
+        <%= f.label :email, "Email" %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="form-right">
+        <%= f.label :last_name, "Last Name:" %>
+        <%= f.text_field :last_name %>
+        
+        <%= f.label :gender, "Gender" %>
+        <div class="gender-group">
+          <div><%= f.radio_button :gender, 'male' %> Male</div>
+          <div><%= f.radio_button :gender, 'female' %> Female</div>
+        </div>
+
+        <%= f.label :phone, "Phone Number" %>
+        <%= f.telephone_field :phone %>
+      </div>
+    </section>
+
+    <section class="bottom">
+      <div class="form-group">
+        <%= f.label :subject, "Subject" %>
+        <%= f.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]), { required: true } %>
+      </div>
+
+      <%= f.submit "Submit", id: "submit-button" %>
+    </section>
+  </main>
+<% end %>
