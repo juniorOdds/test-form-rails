@@ -1,11 +1,8 @@
-
-
 body {
   background-color: azure;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
 }
 .card-container {
   display: flex;
@@ -23,8 +20,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 200px;
+  height: 130px;
+  position: relative;
+}
+.card.show-detail {
+  display: flex;
+  align-items: flex-start;
+  height: 300px;
+  .card-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .btn-group {
+    height: 30%;
+  }
+}
+.detail-card {
+  display: none;
+  margin-top: 10px;
   
+}
+.card.show-detail .detail-card {
+  display: flex;
+  flex-direction: row;
+  .user-info-right {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-info-left {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 5px 9px rgba(28, 28, 28, 0.1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  size: 125%;
 }
 
 .card-content {
@@ -33,12 +68,11 @@ body {
   gap: 16px;
   height: 100%;
   width: 100%;
-
 }
 
 .logo {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   background-color: #e0e0e0;
   border-radius: 50%;
   display: flex;
@@ -53,38 +87,44 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 35px;
-  .user-detail{
+  gap: 20px;
+  .user-detail {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
   }
   .more-info {
+    background: none;
+    border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
-    > svg{
-      width: 20px;
-      height: 20px;
+    gap: 5px;
+    > svg {
+      width: 10px;
+      height: 10px;
+    }
+    > .more-detail {
+      font-size: 12px;
     }
   }
 }
 
 .user-name {
   font-weight: bold;
-  font-size: 32px;
+  font-size: 20px;
   margin: 0 0 4px 0;
 }
 
 .detail {
+  font-size: 12px;
   color: #888;
 }
 .btn-group {
   display: flex;
   gap: 20px;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 100%;
 }
 
 .delete-button {
@@ -101,7 +141,6 @@ body {
   color: #792339;
   background-color: white;
   width: 100%;
-  
 }
 
 .edit-button {
