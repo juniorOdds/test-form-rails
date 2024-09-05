@@ -88,6 +88,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.active_record.sqlite3_production_warning = false
 
+
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
