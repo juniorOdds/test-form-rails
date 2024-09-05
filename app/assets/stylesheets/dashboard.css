@@ -25,8 +25,8 @@ body {
 }
 .card.show-detail {
   display: flex;
-  align-items: flex-start;
-  height: 300px;
+  align-items: center;
+  height: 210px;
   .card-content {
     display: flex;
     align-items: flex-start;
@@ -34,7 +34,7 @@ body {
     gap: 16px;
   }
   .btn-group {
-    height: 30%;
+    height: 60%;
   }
 }
 .detail-card {
@@ -45,13 +45,24 @@ body {
 .card.show-detail .detail-card {
   display: flex;
   flex-direction: row;
-  .user-info-right {
+  justify-content: space-between;
+  .user-info{
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    p{
+      font-size: 10px;
+    }
   }
-  .user-info-left {
+  
+}
+@media screen and (max-width: 940px) {
+
+  .btn-group {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
   }
 }
 
