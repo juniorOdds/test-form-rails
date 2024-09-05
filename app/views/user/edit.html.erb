@@ -1,19 +1,48 @@
-<h1>Edit User</h1>
-<%= turbo_frame_tag "form_frame" do %>
-    <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
-    <div>
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-    </div>
+<main>
+    <%= turbo_frame_tag "form_frame" do %>
+        <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
+            <section class="center">
+                <div class="form-left">
+                    <%= form.label :first_name, "First Name:" %>
+                    <%= form.text_field :first_name %>
+                    
+                                
+                    <%= form.label :birth_day, "Birthday" %>
+                    <%= form.date_field :birth_day %>
+                    
+                                
+                    <%= form.label :email, "Email" %>
+                    <%= form.email_field :email %>
+                   
+                </div>
 
-    <div>
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-    </div>
+                <div class="form-right">
+                    <%= form.label :last_name, "Last Name:" %>
+                    <%= form.text_field :last_name %>
+                    
+                                
+                    <%= form.label :gender, "Gender" %>
+                    <div class="gender-group">
+                        <div><%= form.radio_button :gender, 'male' %> Male</div>
+                        <div><%= form.radio_button :gender, 'female' %> Female</div>
+                    </div>
 
-    <div>
-        <%= form.submit "Update User" %>
-    </div>
-    <% end %>
-<%end%>
+                    
 
+                    <%= form.label :phone, "Phone Number" %>
+                    <%= form.telephone_field :phone_number %>
+                    
+                </div>
+            </section>
+            <section class="bottom">
+                <div class="form-group">
+                    <%= form.label :subject, "Subject" %>
+                    <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]) %>
+                    
+                </div>
+                <%= form.submit "Submit", id: "submit-button" %>
+            </section>
+        <% end %>
+    <%end%>
+
+</main>
