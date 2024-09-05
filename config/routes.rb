@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get "dashboard/:id", to: "user#list", as: :user_list
   get "registerform", to: "user#new", as: :register_user
   post "registerform", to: "user#create", as: :create_user
-  get "edit/:id", to: "user#edit", as: :edit_post
-  patch "edit",to: "user#update", as: :update_user
+
+  get '/users/:id/edit', to: 'user#edit', as: :edit_user
+  patch '/users/:id', to: 'user#update', as: :user
+
+
 
 
   # Defines the root path route ("/")

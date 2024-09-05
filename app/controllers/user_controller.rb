@@ -30,6 +30,7 @@ class UserController < ApplicationController
     if @user.update(user_params)
       render turbo_stream: turbo_stream.replace("form_frame",partial: "user/success"
       )
+
     else
       render :edit
     end
