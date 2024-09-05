@@ -1,6 +1,11 @@
-<main>
+<%stylesheet_link_tag "editform.css", media: "all"%>
     <%= turbo_frame_tag "form_frame" do %>
+    <main class="edit-form">
+
         <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
+            <section class="title">
+                <h1>Edit Form</h1>
+            </section>
             <section class="center">
                 <div class="form-left">
                     <%= form.label :first_name, "First Name:" %>
@@ -40,9 +45,9 @@
                     <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]) %>
                     
                 </div>
-                <%= form.submit "Submit", id: "submit-button" %>
+                <%= form.submit "Update user", id: "submit-button" %>
             </section>
         <% end %>
+        </main>
     <%end%>
 
-</main>
