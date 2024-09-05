@@ -1,0 +1,64 @@
+ 
+ <main>
+            <%= form_with(model: @user, url: register_user_path, method: :post, data: { turbo_frame: 'form_frame' }) do |form| %>
+                    <section class="title">
+                        <h1>Register Form</h1>
+                    </section>
+                    <section class="center">
+                        <div class="form-left">
+                            <%= form.label :first_name, "First Name:" %>
+                            <%= form.text_field :first_name %>
+                            <div class="error <%= 'show' if @user.errors[:first_name].any? %>">
+                                <%= @user.errors.full_messages_for(:first_name).join(', ') %>
+                            </div>
+                            
+                            <%= form.label :birth_day, "Birthday" %>
+                            <%= form.date_field :birth_day %>
+                            <div class="error <%= 'show' if @user.errors[:birth_day].any? %>">
+                                <%= @user.errors.full_messages_for(:birth_day).join(', ') %>
+                            </div>
+                            
+                            <%= form.label :email, "Email" %>
+                            <%= form.email_field :email %>
+                            <div class="error <%= 'show' if @user.errors[:email].any? %>">
+                                <%= @user.errors.full_messages_for(:email).join(', ') %>
+                            </div>
+                        </div>
+
+                        <div class="form-right">
+                            <%= form.label :last_name, "Last Name:" %>
+                            <%= form.text_field :last_name %>
+                            <div class="error <%= 'show' if @user.errors[:last_name].any? %>">
+                                <%= @user.errors.full_messages_for(:last_name).join(', ') %>
+                            </div>
+                            
+                            <%= form.label :gender, "Gender" %>
+                            <div class="gender-group">
+                            <div><%= form.radio_button :gender, 'male' %> Male</div>
+                            <div><%= form.radio_button :gender, 'female' %> Female</div>
+                            </div>
+
+                            <div class="error <%= 'show' if @user.errors[:gender].any? %>">
+                                <%= @user.errors.full_messages_for(:gender).join(', ') %>
+                            </div>
+
+                            <%= form.label :phone, "Phone Number" %>
+                            <%= form.telephone_field :phone_number %>
+                            <div class="error <%= 'show' if @user.errors[:phone_number].any? %>">
+                                <%= @user.errors.full_messages_for(:phone_number).join(', ') %>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bottom">
+                        <div class="form-group">
+                            <%= form.label :subject, "Subject" %>
+                            <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]) %>
+                            <div class="error <%= 'show' if @user.errors[:subject].any? %>">
+                                <%= @user.errors.full_messages_for(:subject).join(', ') %>
+                            </div>
+                        </div>
+                        <%= form.submit "Submit", id: "submit-button" %>
+                    </section>
+                <% end %>
+ </main>

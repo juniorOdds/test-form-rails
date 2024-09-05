@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "registerform", to: "user#create", as: :create_user
   root "user#new"
 
+
   # Defines the root path route ("/")
   # root "posts#index"
   
