@@ -1,7 +1,11 @@
+
+
 body {
+  background-color: azure;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
 }
 .card-container {
   display: flex;
@@ -13,22 +17,28 @@ body {
 
 .card {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 35px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 200px;
+  
 }
 
 .card-content {
   display: flex;
   align-items: center;
+  gap: 16px;
+  height: 100%;
+  width: 100%;
+
 }
 
 .logo {
-  width: 48px;
-  height: 48px;
+  width: 130px;
+  height: 130px;
   background-color: #e0e0e0;
   border-radius: 50%;
   display: flex;
@@ -40,11 +50,30 @@ body {
 
 .info {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+  .user-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .more-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    > svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .user-name {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 32px;
   margin: 0 0 4px 0;
 }
 
@@ -53,23 +82,39 @@ body {
 }
 .btn-group {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  width: 40%;
+  height: 40%;
 }
 
 .delete-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* font-weight: bold; */
+  font-size: 20px;
   border-radius: 10px;
   padding: 8px 16px;
-  border: 1px solid #77f0bd;
-  color: #064a1e;
+  border: 1px solid #db3f56;
+  color: #792339;
   background-color: white;
   width: 100%;
+  
 }
 
 .edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+  height: 100%;
   width: 100%;
   border-radius: 10px;
   padding: 8px 16px;
-  background-color: #84ec95;
+  background-color: #49eb64;
   color: white;
   border: none;
   text-decoration: none;

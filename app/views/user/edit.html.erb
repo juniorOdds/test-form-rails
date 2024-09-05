@@ -1,8 +1,11 @@
 <%stylesheet_link_tag "editform.css", media: "all"%>
-    <%= turbo_frame_tag "form_frame" do %>
-    <main class="edit-form">
 
+    <%= turbo_frame_tag "form_frame" do %>
+
+    <main class="edit-form">
+        <%= button_to 'Back', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
         <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
+        
             <section class="title">
                 <h1>Edit Form</h1>
             </section>

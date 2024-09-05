@@ -1,5 +1,6 @@
 
- <main>
+ <main>       
+            <%= button_to 'Back', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
             <%= form_with(model: @user, url: register_user_path, method: :post, data: { turbo_frame: 'form_frame' }) do |form| %>
                     
                     <section class="title">
