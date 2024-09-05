@@ -1,10 +1,27 @@
-<h1>Hello</h1>
-<ul>
-  <% @users.each do |people| %>
-      <li>
-        <%= people.first_name %>
-      </li>
+<%= stylesheet_link_tag "dashboard.css", media: "all" %>
+
+<div class="card-container">
+  <% @users.each do |user| %>
+    <div class="card">
+      <div class="card-content">
+        <div class="logo">
+          <%= user.first_name[0] %><%= user.last_name[0] %>
+        </div>
+        <div class="info">
+          <h3 class="user-name"><%= user.first_name %> <%= user.last_name %></h3>
+          <p class="detail">Gender : <%= user.gender %></p>
+          <p class="detail">Email : <%= user.email %></p>
+          <p class="detail">Phone number : <%= user.phone_number %></p>
+          <p class="detail">birthday : <%= user.birth_day %></p>
+          <p class="detail"><%= user.subject %></p>
+
+
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="delete-button">delete</button>
+        <%= link_to 'Edit', edit_post_path(user), class: "edit-button" %>
+      </div>
+    </div>
   <% end %>
-</ul>
-  
-  
+</div>

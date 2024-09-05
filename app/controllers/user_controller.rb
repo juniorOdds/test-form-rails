@@ -20,6 +20,21 @@ class UserController < ApplicationController
     end
   end
 
+
+  def edit
+    @user=User.find(params[:id])
+  end
+
+  def update
+    @user=User.find(params[:id])
+    if @user.update(user_params)
+      render turbo_stream: turbo_stream.replace("form_frame",partial: "user/success"
+      )
+    else
+      render :edit
+    end
+  end
+
   private
 
   def user_params
