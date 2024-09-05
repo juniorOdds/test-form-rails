@@ -1,9 +1,10 @@
 body {
-  background-color: azure;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@ body {
 }
 
 .card {
-  background-color: white;
+  background-color: rgb(244, 244, 244);
   border-radius: 35px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 30px;

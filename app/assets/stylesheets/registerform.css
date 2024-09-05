@@ -1,5 +1,4 @@
 * {
-  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 body {
@@ -10,10 +9,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #82e1f4, #4dddd1, #4dddd1, #82e1f4);
 }
+
 #form_frame {
   width: 50%;
+
 }
 main {
   width: 100%;
