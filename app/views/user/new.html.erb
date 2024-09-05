@@ -1,6 +1,10 @@
 <%= javascript_importmap_tags %>
 <%= stylesheet_link_tag "registerform.css", media: "all" %>
+
+
+
 <%= turbo_frame_tag "form_frame" do %>
+
     <%= render 'form', user: @user %>
 <% end %>
 

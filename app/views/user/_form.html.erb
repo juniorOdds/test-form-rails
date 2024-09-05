@@ -1,6 +1,7 @@
- 
+
  <main>
             <%= form_with(model: @user, url: register_user_path, method: :post, data: { turbo_frame: 'form_frame' }) do |form| %>
+                    
                     <section class="title">
                         <h1>Register Form</h1>
                     </section>
@@ -59,6 +60,7 @@
                             </div>
                         </div>
                         <%= form.submit "Submit", id: "submit-button" %>
+
                     </section>
                 <% end %>
  </main>

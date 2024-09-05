@@ -92,6 +92,20 @@ form {
     row-gap: 10px;
   }
 }
+.back-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #2a417a;
+}
+
+.back-button i {
+  margin-right: 8px;
+}
+
+.back-button:hover {
+  color: #202823; 
+}
 
 .error {
   color: red;
