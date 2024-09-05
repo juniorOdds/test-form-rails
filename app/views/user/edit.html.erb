@@ -42,8 +42,10 @@
             <section class="bottom">
                 <div class="form-group">
                     <%= form.label :subject, "Subject" %>
-                    <%= form.select :subject, options_for_select([["Choose option", ""], "option1", "option2", "option3"]) %>
-                    
+                    <%= form.select :subject, options_for_select(
+                        [["Choose option", ""], ["Option 1", "option1"], ["Option 2", "option2"], ["Option 3", "option3"]],
+                        @user.subject
+                    ) %>                    
                 </div>
                 <%= form.submit "Update user", id: "submit-button" %>
             </section>

@@ -29,11 +29,16 @@ class UserController < ApplicationController
     @user=User.find(params[:id])
     if @user.update(user_params)
       render turbo_stream: turbo_stream.replace("form_frame",partial: "user/success"
-      )
-
+    )
     else
       render :edit
     end
+  end
+
+
+  def destroy
+    @user=User.find(params[:id])
+    @user.destroy
   end
 
   private

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'user#update', as: :user
 
 
+  delete '/users/:id', to: 'user#destroy', as: :delete_user
+
 
 
   # Defines the root path route ("/")
