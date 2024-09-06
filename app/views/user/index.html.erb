@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "dashboard.css", media: "all" %>
+<%= javascript_include_tag "dashboard.js", "data-turbo-track": "reload", defer: true %>
 <%= render 'shared/navbar' %>
-
 <div class="card-container">
   <% @users.each do |user| %>
     <div class="card">
@@ -34,12 +34,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-  document.querySelectorAll('.more-info').forEach(function(button) {
-    button.addEventListener('click', function() {
-      var card = button.closest('.card');  // ค้นหาการ์ดที่เกี่ยวข้องกับปุ่มที่คลิก
-      card.classList.toggle('show-detail');  // เพิ่มหรือลบคลาส show-detail เพื่อแสดงหรือซ่อน detail-card
-    });
-  });
-</script>
