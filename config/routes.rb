@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "user#new"
 
   get "dashboard", to: "user#index", as: :dashboard
-  get "dashboard/:id", to: "user#list", as: :user_list
+  # get "dashboard/:id", to: "user#list", as: :user_list
   get "registerform", to: "user#new", as: :register_user
   post "registerform", to: "user#create", as: :create_user
 
