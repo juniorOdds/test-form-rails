@@ -7,6 +7,14 @@
         <%= flash[:notice] %>
       </div>
 <% end %>
+<% if flash[:alert] %>
+      <div class="flash flash-alert">
+        <%= flash[:alert] %>
+      </div>
+<% end %>
+<div class="couter-people">
+  <p class="Number">จำนวนคนสมัคร : <%= @users.count%></p>
+</div>
 <div class="card-container">
   <% @users.each do |user| %>
     <div class="card">
