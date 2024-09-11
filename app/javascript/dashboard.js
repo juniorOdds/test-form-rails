@@ -5,6 +5,8 @@ document.querySelectorAll(".more-info").forEach((button) => {
   });
 });
 
+
+
 // setTimeout(() => {
 //   const successFlash = document.querySelector(".flash-notice");
 //   const errorFlash = document.querySelector(".flash-alert");
