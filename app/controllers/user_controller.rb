@@ -39,11 +39,27 @@ class UserController < ApplicationController
       render :edit
     end
   end
-
-
+  def confirm_delete
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
+  end
+  
   def destroy
     @user=User.find(params[:id])
     @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'User was successfully deleted.' }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("user_#{@user.id}"),
+          turbo_stream.update("user_count", partial: "shared/user_count", locals: { user_count: User.count })
+        ]
+      end
+    end
   end
 
   private

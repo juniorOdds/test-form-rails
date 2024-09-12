@@ -14,8 +14,8 @@
                                 <%= @user.errors.full_messages_for(:first_name).join(', ') %>
                             </div>
                             
-                            <%= form.label :birth_day, "Birthday (พ.ศ.):" %>
-                            <%= form.text_field :birth_day, id: 'datepicker' %>
+                            <%= form.label :birth_day, "Birthday (พ.ศ.): " %>
+                            <%= form.text_field :birth_day, id: 'datepicker', placeholder: 'dd/mm/yyyy' %>  
                             <div class="error <%= 'show' if @user.errors[:birth_day].any? %>">
                                 <%= @user.errors.full_messages_for(:birth_day).join(', ') %>
                             </div>

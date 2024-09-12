@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'user#edit', as: :edit_user
   patch '/users/:id', to: 'user#update', as: :user
 
-
+  get '/users/:id/confirm_delete', to: 'user#confirm_delete', as: :confirm_delete_user
   delete '/users/:id', to: 'user#destroy', as: :delete_user
 
 

@@ -2,51 +2,54 @@
 <%= javascript_include_tag "dashboard.js", "data-turbo-track": "reload", defer: true %>
 <%= render 'shared/navbar' %>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<%= stylesheet_link_tag "modal.css", media: "all"%>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <% if flash[:notice] %>
-      <div class="flash flash-notice">
-        <%= flash[:notice] %>
-      </div>
+  <div class="flash flash-notice">
+    <%= flash[:notice] %>
+  </div>
 <% end %>
 <% if flash[:alert] %>
-      <div class="flash flash-alert">
-        <%= flash[:alert] %>
-      </div>
+  <div class="flash flash-alert">
+    <%= flash[:alert] %>
+  </div>
 <% end %>
-<div class="couter-people">
-  <p class="Number">จำนวนคนสมัคร : <%= @users.count%></p>
-</div>
+<%= turbo_frame_tag "user_count" do %>
+  <%= render 'shared/user_count', user_count: @users.count %>
+<% end %>
+<%= turbo_frame_tag "modal_frame" %>
+
 <div class="card-container">
   <% @users.each do |user| %>
-    <div class="card">
+    <div id="<%= dom_id(user) %>" class="card">
       <div class="card-content">
         <div class="logo">
           <%= user.first_name[0] %><%= user.last_name[0] %>
         </div>
         <div class="info">
-          <div class = "user-detail">
+          <div class="user-detail">
             <h3 class="user-name"><%= user.first_name %> <%= user.last_name %></h3>
             <p class="detail">Email : <%= user.email %></p>
           </div>
-          <div class="more-info" >
+          <div class="more-info">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" /></svg>
             <p class="more-detail">More details</p>
           </div>
-          <div class="detail-card" >
+          <div class="detail-card">
             <div class="user-info">
               <p class="user-gender">Gender : <%= user.gender %></p>
-              <p class="user-birthday">Birthday : <%= user.birth_day %></p> 
+              <p class="user-birthday">Birthday : <%= user.birth_day %></p>
               <p class="user-phone">Phone number : <%= user.phone_number %></p>
-              <p class="user-subject">Subject : <%= user.subject %></p> 
+              <p class="user-subject">Subject : <%= user.subject %></p>
             </div>
           </div>
         </div>
       </div>
       <div class="btn-group">
-        <%= button_to 'Delete', delete_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-button" %>
+        <%= button_to 'Delete', confirm_delete_user_path(user), method: :get, data: { turbo_frame: "modal_frame" }, class: "delete-button" %>
         <%= link_to 'Edit', edit_user_path(user.id), class: "edit-button" %>
       </div>
     </div>

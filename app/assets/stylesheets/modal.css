@@ -1,0 +1,67 @@
+/* Modal overlay styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure the modal appears above other content */
+  }
+  
+  /* Modal content styling */
+  .modal-content {
+    background: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the modal */
+    max-width: 500px; /* Limit the width of the modal */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth effect */
+    text-align: center; /* Center text inside the modal */
+  }
+  
+  /* Modal header styling */
+  .modal-content h3 {
+    margin-top: 0; /* Remove margin from the top */
+    font-size: 1.5em; /* Larger font size for the header */
+    color: #333; /* Dark text color */
+  }
+  
+  /* Modal body styling */
+  .modal-content p {
+    margin: 20px 0; /* Spacing above and below the paragraph */
+    font-size: 1em; /* Default font size */
+    color: #555; /* Slightly lighter text color */
+  }
+  
+  /* Modal button styling */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff; /* White text color */
+  }
+  
+  .btn-danger {
+    background: #e74c3c; /* Red background for the delete button */
+  }
+  
+  .btn-danger:hover {
+    background: #c0392b; /* Darker red on hover */
+  }
+  
+  .btn-secondary {
+    background: #95a5a6; /* Gray background for the cancel button */
+  }
+  
+  .btn-secondary:hover {
+    background: #7f8c8d; /* Darker gray on hover */
+  }
+  
