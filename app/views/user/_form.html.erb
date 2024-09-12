@@ -1,4 +1,4 @@
-ิ
+
  <main>       
             <%= button_to 'Back', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
             <%= form_with(model: @user, url: register_user_path, method: :post, data: { turbo_frame: 'form_frame' }) do |form| %>
@@ -73,7 +73,7 @@
         dateFormat: "dd/mm/yy",
         changeMonth: true,
         changeYear: true,
-        yearRange: "2567:2660", // กำหนดช่วงปีให้เป็น พ.ศ.
+        yearRange: "2567:2660", 
         beforeShow: function(input, inst) {
             // แปลงปีในตัวเลือกเป็น พ.ศ.
             var date = $(this).datepicker('getDate');
@@ -83,22 +83,24 @@
                 $(input).val($.datepicker.formatDate("dd/mm/yy", date));
             }
         },
-        onClose: function(dateText, inst) {
-            // แปลงกลับจาก พ.ศ. เป็น ค.ศ. ก่อนส่งข้อมูล
-            var date = $(this).datepicker('getDate');
-            if (date) {
-                date.setFullYear(date.getFullYear() - 543);
-                $(this).datepicker('setDate', date);
-            }
-        },
         onSelect: function(dateText, inst) {
-            var date = $(this).datepicker('getDate');
-            if (date) {
-                // แสดงปี พ.ศ. ใน input field ทันทีที่เลือก
+        // เมื่อเลือกวันที่แล้ว ให้แปลงเป็น พ.ศ. และแสดงในฟิลด์ input
+        var date = $(this).datepicker('getDate');
+        if (date) {
+            if (date.getFullYear() < 2400) { 
                 date.setFullYear(date.getFullYear() + 543);
-                $(this).val($.datepicker.formatDate("dd/mm/yy", date));
             }
+            $(this).val($.datepicker.formatDate("dd/mm/yy", date));
         }
+      },
+      onClose: function(dateText, inst) {
+        // หลังจากปิดปฏิทิน ให้แปลงปีจาก พ.ศ. เป็น ค.ศ. ก่อนส่งฟอร์ม
+        var date = $(this).datepicker('getDate');
+        if (date) {
+            date.setFullYear(date.getFullYear() );
+            $(this).datepicker('setDate', date);
+        }
+      }
     });
 });
 
