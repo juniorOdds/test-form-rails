@@ -1,0 +1,60 @@
+<%stylesheet_link_tag "editform.css", media: "all"%>
+
+<div class="modal-overlay">
+
+    <main class="edit-form">
+        <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
+        <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
+        
+            <section class="title">
+                <h1>Edit Form</h1>
+            </section>
+            <section class="center">
+                <div class="form-left">
+                    <%= form.label :first_name, "First Name:" %>
+                    <%= form.text_field :first_name %>
+                    
+                                
+                    <%= form.label :birth_day, "Birthday" %>
+                    <%= form.date_field :birth_day %>
+                    
+                                
+                    <%= form.label :email, "Email" %>
+                    <%= form.email_field :email %>
+                   
+                </div>
+
+                <div class="form-right">
+                    <%= form.label :last_name, "Last Name:" %>
+                    <%= form.text_field :last_name %>
+                    
+                                
+                    <%= form.label :gender, "Gender" %>
+                    <div class="gender-group">
+                        <div><%= form.radio_button :gender, 'male' %> Male</div>
+                        <div><%= form.radio_button :gender, 'female' %> Female</div>
+                    </div>
+
+                    
+
+                    <%= form.label :phone, "Phone Number" %>
+                    <%= form.telephone_field :phone_number %>
+                    
+                </div>
+            </section>
+            <section class="bottom">
+                <div class="form-group">
+                    <%= form.label :subject, "Subject" %>
+                    <%= form.select :subject, options_for_select(
+                        [["Choose option", ""], ["Option 1", "option1"], ["Option 2", "option2"], ["Option 3", "option3"]],
+                        @user.subject
+                    ) %>                    
+                </div>
+                <%= form.submit "Update user", id: "submit-button" %>
+            </section>
+        <% end %>
+    </main>
+
+
+
+</div>

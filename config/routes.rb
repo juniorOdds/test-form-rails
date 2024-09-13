@@ -4,18 +4,18 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check
-  root "user#new"
+  root "user#index"
 
   get "dashboard", to: "user#index", as: :dashboard
-  # get "dashboard/:id", to: "user#list", as: :user_list
-  get "registerform", to: "user#new", as: :register_user
-  post "registerform", to: "user#create", as: :create_user
 
-  get '/users/:id/edit', to: 'user#edit', as: :edit_user
-  patch '/users/:id', to: 'user#update', as: :user
+  get "dashboard/new", to: "user#new", as: :register_user
+  post "dashboard", to: "user#create", as: :create_user
 
-  get '/users/:id/confirm_delete', to: 'user#confirm_delete', as: :confirm_delete_user
-  delete '/users/:id', to: 'user#destroy', as: :delete_user
+  get '/dashboard/:id/edit', to: 'user#edit', as: :edit_user
+  patch '/dashboard/:id', to: 'user#update', as: :user
+
+  get '/dashboard/:id/confirm_delete', to: 'user#confirm_delete', as: :confirm_delete_user
+  delete '/dashboard/:id', to: 'user#destroy', as: :delete_user
 
 
 

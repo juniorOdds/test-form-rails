@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag "dashboard.css", media: "all" %>
 <%= javascript_include_tag "dashboard.js", "data-turbo-track": "reload", defer: true %>
+
 <%= render 'shared/navbar' %>
+
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <%= stylesheet_link_tag "modal.css", media: "all"%>
 
@@ -20,8 +22,10 @@
 <%= turbo_frame_tag "user_count" do %>
   <%= render 'shared/user_count', user_count: @users.count %>
 <% end %>
-<%= turbo_frame_tag "modal_frame" %>
 
+<%= turbo_frame_tag "modal_frame" %>
+<%= turbo_frame_tag "register_modal_frame" %>
+<%= turbo_frame_tag "edit_modal_frame" %>
 <div class="card-container">
   <% @users.each do |user| %>
     <div id="<%= dom_id(user) %>" class="card">
@@ -50,7 +54,9 @@
       </div>
       <div class="btn-group">
         <%= button_to 'Delete', confirm_delete_user_path(user), method: :get, data: { turbo_frame: "modal_frame" }, class: "delete-button" %>
-        <%= link_to 'Edit', edit_user_path(user.id), class: "edit-button" %>
+        <%# <%= link_to 'Edit', edit_user_path(user.id), class: "edit-button" %> 
+        <%= button_to 'Edit', edit_user_path(user.id), method: :get,data: { turbo_frame: "edit_modal_frame" }, class: "edit-button" %>
+
       </div>
     </div>
   <% end %>

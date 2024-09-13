@@ -1,7 +1,9 @@
+<%= stylesheet_link_tag "registerform.css", media: "all" %>
+<div class="modal-overlay">
 
- <main>       
-            <%= button_to 'Back', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
-            <%= form_with(model: @user, url: register_user_path, method: :post, data: { turbo_frame: 'form_frame' }) do |form| %>
+    <main>       
+            <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
+            <%= form_with(model: @user, url: create_user_path, method: :post ) do |form| %>
                     
                     <section class="title">
                         <h1>Register Form</h1>
@@ -15,7 +17,7 @@
                             </div>
                             
                             <%= form.label :birth_day, "Birthday (พ.ศ.): " %>
-                            <%= form.text_field :birth_day, id: 'datepicker', placeholder: 'dd/mm/yyyy' %>  
+                        <%= form.text_field :birth_day, id: 'datepicker', placeholder: 'dd/mm/yyyy' %>  
                             <div class="error <%= 'show' if @user.errors[:birth_day].any? %>">
                                 <%= @user.errors.full_messages_for(:birth_day).join(', ') %>
                             </div>
@@ -64,7 +66,9 @@
 
                     </section>
                 <% end %>
- </main>
+    </main>
+ </div>
+
 
 
  <script>

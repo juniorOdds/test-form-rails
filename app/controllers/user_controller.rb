@@ -7,15 +7,18 @@ class UserController < ApplicationController
     @user=User.find(params[:id])
   end
   def new
-    @user=User.new
+    @user = User.new
+    respond_to do |format|
+      format.turbo_stream { render partial: "user/form", locals: { user: @user } }
+      format.html
+    end
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "success!" 
-      render turbo_stream: turbo_stream.replace("form_frame",partial: "user/success"
-      )
+      render turbo_stream: turbo_stream.replace("register_modal_frame",partial: "user/success")
 
     else
       flash[:alert] = "Error!"  
@@ -26,6 +29,10 @@ class UserController < ApplicationController
 
   def edit
     @user=User.find(params[:id])
+    respond_to do |format|
+      format.turbo_stream { render partial: "user/form", locals: { user: @user } }
+      format.html
+    end
   end
 
   def update
