@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "registerform.css", media: "all" %>
-<div class="modal-overlay">
+<div class="modal-overlay" data-controller="register-modal" id ="modalRegister">
 
     <main>       
             <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
@@ -62,7 +62,7 @@
                                 <%= @user.errors.full_messages_for(:subject).join(', ') %>
                             </div>
                         </div>
-                        <%= form.submit "Submit", id: "submit-button" ,data: { turbo_frame: 'card-content' }  %>
+                        <%= form.submit "Submit", id: "submit-button" ,data: { turbo_frame: 'card-content' , action: "click->register-modal#hide_modal"}  %>
 
                     </section>
                 <% end %>
