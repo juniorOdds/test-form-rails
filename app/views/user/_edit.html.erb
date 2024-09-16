@@ -4,7 +4,7 @@
 
     <main class="edit-form">
         <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
-        <%= form_with(model: @user, url: (@user), method: :patch, local: false) do |form| %>
+        <%= form_with(model: @user, url: (@user), method: :patch, local: false,data: { turbo_frame: "card-content" }) do |form| %>
         
             <section class="title">
                 <h1>Edit Form</h1>
@@ -50,7 +50,7 @@
                         @user.subject
                     ) %>                    
                 </div>
-                <%= form.submit "Update user", id: "submit-button" %>
+                <%= form.submit "Update user", id: "submit-button" ,data: { turbo_frame: "card-content" } %>
             </section>
         <% end %>
     </main>

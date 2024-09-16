@@ -18,7 +18,7 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("register_modal_frame", partial: "user/success") }
+        format.html { redirect_to dashboard_path, notice: 'User was successfully deleted.' }
         format.html { redirect_to dashboard_path, notice: 'Success!' }
       end
     else
@@ -42,8 +42,10 @@ class UserController < ApplicationController
     @user=User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Success!"
-      render turbo_stream: turbo_stream.replace("form_frame",partial: "user/success"
-      )
+      respond_to do |format|
+        format.html { redirect_to dashboard_path, notice: 'Success!' }
+        
+      end
     else
       flash[:alert] = "Error!"
       render :edit

@@ -26,7 +26,7 @@
 <%= turbo_frame_tag "modal_frame" %>
 <%= turbo_frame_tag "register_modal_frame" %>
 <%= turbo_frame_tag "edit_modal_frame" %>
-<turbo-frame class="card-container">
+<turbo-frame id="card-content">
   <% @users.each do |user| %>
     <div id="<%= dom_id(user) %>" class="card">
       <div class="card-content">
