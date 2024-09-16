@@ -17,12 +17,15 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "success!" 
-      render turbo_stream: turbo_stream.replace("register_modal_frame",partial: "user/success")
-
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("register_modal_frame", partial: "user/success") }
+        format.html { redirect_to dashboard_path, notice: 'Success!' }
+      end
     else
-      flash[:alert] = "Error!"  
-      render :new
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("register_modal_frame", partial: "user/form", locals: { user: @user }) }
+        format.html { render :new }
+      end
     end
   end
 
@@ -46,7 +49,7 @@ class UserController < ApplicationController
       render :edit
     end
   end
-  def confirm_delete
+  def delete
     @user = User.find(params[:id])
     respond_to do |format|
       format.html

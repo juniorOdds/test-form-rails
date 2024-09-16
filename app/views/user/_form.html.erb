@@ -3,7 +3,7 @@
 
     <main>       
             <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
-            <%= form_with(model: @user, url: create_user_path, method: :post ) do |form| %>
+            <%= form_with(model: @user, url: create_user_path, method: :post , local: false) do |form| %>
                     
                     <section class="title">
                         <h1>Register Form</h1>
@@ -62,7 +62,7 @@
                                 <%= @user.errors.full_messages_for(:subject).join(', ') %>
                             </div>
                         </div>
-                        <%= form.submit "Submit", id: "submit-button" %>
+                        <%= form.submit "Submit", id: "submit-button" ,data: { turbo_frame: 'card-container' }  %>
 
                     </section>
                 <% end %>

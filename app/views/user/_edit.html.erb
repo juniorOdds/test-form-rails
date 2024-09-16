@@ -4,7 +4,7 @@
 
     <main class="edit-form">
         <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
-        <%= form_with(model: @user, url: (@user), method: :patch, local: true) do |form| %>
+        <%= form_with(model: @user, url: (@user), method: :patch, local: false) do |form| %>
         
             <section class="title">
                 <h1>Edit Form</h1>
