@@ -25,7 +25,7 @@ export class Register{
         await this.page.locator('#user_phone_number').fill('0811111111');
         await this.page.getByLabel('Subject').selectOption('option1');
         await this.page.getByRole('button', { name: 'Submit' }).click();
-        
+
     }
     
 }
