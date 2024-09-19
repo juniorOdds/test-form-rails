@@ -18,8 +18,15 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("user_count", partial: "shared/user_count", locals: { user_count: User.count }),
+            turbo_stream.append("card-content", partial: "user/user_card",locals: { user: @user })
+          ]
+        end
+        # format.turbo_stream { render turbo_stream: turbo_stream.replace("register_modal_frame", partial: "user/form", locals: { user: @user }) }
         # format.html { redirect_to dashboard_path, notice: 'User was successfully deleted.' }
-        format.html { redirect_to dashboard_path, notice: 'Success!' }
+        # format.html { redirect_to dashboard_path, notice: 'Success!' }
       end
     else
       respond_to do |format|
@@ -43,7 +50,11 @@ class UserController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = "Success!"
       respond_to do |format|
-        format.html { redirect_to dashboard_path, notice: 'Success!' }
+        format.turbo_stream do 
+          render turbo_stream: [
+            turbo_stream.replace("user_#{@user.id}", partial: "user/user_card", locals: { user: @user }),
+          ]
+        end
         
       end
     else
