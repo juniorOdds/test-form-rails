@@ -2,7 +2,7 @@
 <div class="modal-overlay" data-controller="register-modal" id ="modalRegister">
 
     <main>       
-            <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
+            <button class="back-button" data-action="click->register-modal#closeRegisterModal">Close</button>
             <%= form_with(model: @user, url: create_user_path, method: :post , local: false) do |form| %>
                     
                     <section class="title">

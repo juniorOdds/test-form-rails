@@ -2,7 +2,7 @@
 
 <div class="modal-overlay" data-controller="update-modal" id ="modalEdit" >
     <main class="editform">
-        <%= button_to 'Close', dashboard_path, method: :get, class: "back-button", data: { turbo: false } %>
+            <button class="back-button" id= "closeEditModal" data-action="click->update-modal#closeUpdateModal">Close</button>
         <%= form_with(model: @user, url: @user, method: :patch, local: false, data: { turbo_frame: "card-content", action: "submit->editform#hide" }) do |form| %>
             <section class="title">
                 <h1>Edit Form</h1>

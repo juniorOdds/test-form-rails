@@ -99,7 +99,7 @@ form {
 }
 .back-button {
   display: flex;
-  align-items: center;
+  align-self: flex-start;
   text-decoration: none;
   color: #2a417a;
 }

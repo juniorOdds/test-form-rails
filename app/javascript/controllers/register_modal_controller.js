@@ -12,4 +12,10 @@ export default class extends Controller {
       registerModal.style.display = "none"
     }
   }
+  closeRegisterModal(e) {
+    const registerModal = document.getElementById("modalRegister")
+    if (registerModal) {
+      registerModal.style.display = "none"
+    }
+  }
 }

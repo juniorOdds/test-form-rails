@@ -12,4 +12,10 @@ export default class extends Controller {
       updateModal.style.display = "none"
     }
   }
+  closeUpdateModal(e) {
+    const updateModal = document.getElementById("modalEdit")
+    if (updateModal) {
+      updateModal.style.display = "none"
+    }
+  }
 }
