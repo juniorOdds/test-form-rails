@@ -17,7 +17,7 @@
                             </div>
                             
                             <%= form.label :birth_day, "Birthday (พ.ศ.): " %>
-                        <%= form.text_field :birth_day, id: 'datepicker', placeholder: 'dd/mm/yyyy' %>  
+                            <%= form.text_field :birth_day, id: 'datepicker', placeholder: 'dd/mm/yyyy' %>
                             <div class="error <%= 'show' if @user.errors[:birth_day].any? %>">
                                 <%= @user.errors.full_messages_for(:birth_day).join(', ') %>
                             </div>
@@ -68,8 +68,6 @@
                 <% end %>
     </main>
  </div>
-
-
 
  <script>
     $(document).ready(function() {
